@@ -1,0 +1,7 @@
+@if(postResource.hasValue()) {
+  <post-form 
+    [post]="postResource.value()"
+    (submitPost)="updatePost($event)"
+  ></post-form>
+
+}

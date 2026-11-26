@@ -1,0 +1,10 @@
+@for (item of posts().items; track $index) {
+  <post-card [post]="item"></post-card>
+}
+@empty {
+  <p>Aún no hay publicaciones</p>
+}
+
+@if(posts().items.length) {
+  <shared-paginatios-buttons [totalPages]="totalPages()"></shared-paginatios-buttons>
+}

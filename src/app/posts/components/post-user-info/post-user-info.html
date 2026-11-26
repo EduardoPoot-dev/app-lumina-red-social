@@ -1,0 +1,10 @@
+<div class="flex gap-3">
+  <figure class="size-10 rounded-full overflow-hidden">
+    <img class="size-full object-cover" [src]="profilePhoto()" />
+  </figure>
+
+  <div class="text-gray-600">
+    <a [routerLink]="['/users', user().id]" class="font-bold hover:underline">{{user().name}}</a>
+    <p class="text-sm">@{{user().username}}</p>
+  </div>
+</div>

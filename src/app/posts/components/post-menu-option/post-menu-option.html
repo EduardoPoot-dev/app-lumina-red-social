@@ -1,0 +1,41 @@
+<details name="post-options" class="relative">
+  <summary class="list-none">
+    <svg lucideEllipsis></svg>
+  </summary>
+
+  <ul class="bg-white space-y-3 absolute right-0 p-5 shadow rounded-lg w-60 ">
+    <li class="w-full">
+      <button [disabled]="!authenticated()" (click)="toggleSaved()" [ngClass]="{
+          'hover:text-red-600': savedPost(),
+          'hover:text-indigo-600': !savedPost() && authenticated()
+        }"
+        class="w-full flex text-sm items-center gap-1 hover:text-indigo-600 disabled:text-gray-400 disabled:cursor-not-allowed disabled:hover:text-gray-400 transition-colors">
+        <svg lucideBookmark [size]="15" class=""></svg>
+        {{savePostButtonText()}}
+      </button>
+    </li>
+
+    @if(postBelongsToUser()) {
+      <li>
+        <a
+          [routerLink]="['/posts', post().id, 'edit']"
+          class="w-full flex text-sm items-center gap-1 hover:text-indigo-600 transition-colors"
+        >
+          <svg lucidePencil [size]="15" ></svg>
+          Editar Post
+      </a>
+      </li>
+      <li class="w-full">
+
+        <button (click)="deletePost()"
+          class="w-full flex text-sm items-center gap-1 hover:text-red-600 transition-colors">
+          <svg lucideTrash [size]="15" class=""></svg>
+          Eliminar Post
+        </button>
+
+      </li>
+    }
+
+
+  </ul>
+</details>

@@ -1,0 +1,19 @@
+<details class="relative">
+  <summary class="size-10 list-none rounded-full overflow-hidden cursor-pointer">
+    <img class="size-full object-cover" [src]="profilePhoto()" />
+  </summary>
+
+  <div class="bg-white space-y-3 absolute right-0 p-5 shadow rounded-lg w-55 ">
+    <div class="font-semibold "><span class="font-bold">Hola: </span> <a [routerLink]="['/users', user()?.id]">{{user()?.name}}</a></div>
+    <ul class="mt-5 space-y-3" >
+      <li>
+        <user-change-profile-photo></user-change-profile-photo>
+      </li>
+      <li>
+        <button (click)="logOut()" class="flex  text-gray-700 text-sm items-center gap-2 cursor-pointer hover:text-red-600 transition-colors">
+          <svg lucideLogOut [size]="17"></svg>
+          Cerrar sesión</button>
+      </li>
+    </ul>
+  </div>
+</details>

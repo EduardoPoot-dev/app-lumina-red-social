@@ -1,0 +1,62 @@
+<div class="relative w-full max-w-2xl">
+  <div class="flex">
+    <div
+      class="flex flex-1 items-center rounded-l-full border border-gray-300 bg-white pl-4 pr-2 shadow-inner focus-within:border-blue-600">
+      <input type="text" role="combobox" autocomplete="off" aria-controls="search-listbox" aria-autocomplete="list"
+        [attr.aria-expanded]="showPanel()"
+        [attr.aria-activedescendant]="activeIndex() >= 0 ? 'opt-' + activeIndex() : null" [placeholder]="placeholder()"
+        [value]="query()" (input)="onInput($event)" (focus)="open.set(true)" (keydown)="onKeydown($event)"
+        class="h-10 w-full bg-transparent text-base text-gray-900 outline-none placeholder:text-gray-500" />
+      @if (query()) {
+      <button type="button" aria-label="Borrar búsqueda" (click)="clear()"
+        class="rounded-full p-2 text-gray-600 hover:bg-gray-100">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+      }
+    </div>
+
+    <button type="button" aria-label="Buscar" (click)="goToActiveOrFirst()"
+      class="flex w-16 items-center justify-center rounded-r-full border border-l-0 border-gray-300 bg-gray-100 text-gray-700 hover:bg-gray-200">
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m21 21-4.3-4.3" />
+      </svg>
+    </button>
+  </div>
+
+  @if (showPanel()) {
+  <div class="absolute z-50 mt-2 w-full overflow-hidden rounded-xl border border-gray-200 bg-white py-2 shadow-lg">
+    @if (results().length) {
+    <ul id="search-listbox" role="listbox">
+      @for (user of results(); track user.id; let i = $index) {
+      <li role="option" [id]="'opt-' + i" [attr.aria-selected]="i === activeIndex()"
+        (mousedown)="$event.preventDefault()" (click)="goToProfile(user)" (mouseenter)="activeIndex.set(i)"
+        class="flex cursor-pointer items-center gap-3 px-4 py-2 text-gray-900"
+        [class.bg-gray-100]="i === activeIndex()">
+        @if (user.profilePhoto?.imageUrl) {
+        <img [src]="backendUrl+user.profilePhoto?.imageUrl" [alt]="user.username" class="h-8 w-8 shrink-0 rounded-full object-cover" />
+        } @else {
+        <svg class="h-5 w-5 shrink-0 text-g|ray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m21 21-4.3-4.3" />
+        </svg>
+        }
+        <span class="flex-1 truncate">{{ user.username }}</span>
+      </li>
+      }
+    </ul>
+    } @else if (users.isLoading()) {
+    <p class="px-4 py-2 text-sm text-gray-500">Buscando...</p>
+    } @else if (users.error()) {
+    <p class="px-4 py-2 text-sm text-red-600">No se pudo buscar</p>
+    } @else {
+    <p class="px-4 py-2 text-sm text-gray-500">Sin resultados</p>
+    }
+  </div>
+  }
+</div>

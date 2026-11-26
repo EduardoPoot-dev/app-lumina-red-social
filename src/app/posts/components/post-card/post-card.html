@@ -1,0 +1,30 @@
+<div class=" bg-white rounded-lg p-9 mb-8 ">
+  <div class="flex justify-between">
+    @if (userResource.hasValue()) {
+      <post-user-info [user]="userResource.value()"></post-user-info>
+    }
+
+    <div>
+      <post-menu-option
+        [post]="post()"></post-menu-option>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <p>
+      {{post().content}}
+    </p>
+  </div>
+
+  <div class="flex justify-center">
+    @if(post().images.length) {
+      <post-images-caarousel [imagePost]="imagePost()"></post-images-caarousel>
+    }
+  </div>
+
+  <!--  -->
+
+  <post-buttons-container
+    [postId]="post().id"
+  ></post-buttons-container>
+</div>

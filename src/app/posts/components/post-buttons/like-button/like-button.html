@@ -1,0 +1,25 @@
+<div class="flex items-center gap-1">
+  <button
+    [disabled]="notAuthenticated()"
+    (click)="toggleLike()"
+    [ngClass]="{
+      'text-gray-500 ': !likeResource.value(),
+      'text-red-600': likeResource.value()
+    }"
+    class="group flex items-center disabled:cursor-default gap-2 text-gray-500 disabled:text-gray-300 disabled:hover:text-gray-300 hover:text-red-600 cursor-pointer transition-colors"
+  >
+    <div
+      [ngClass]="{
+        'group-hover:bg-white': notAuthenticated(),
+        'bg-red-100': likeResource.value()
+      }"
+      class="p-1.5 rounded-xl group-hover:bg-red-100  transition-colors"
+    >
+      <svg lucideHeart [size]="20"></svg>
+    </div>
+
+  </button>
+
+  <a [routerLink]="['/posts', postId(), 'likes']" class="text-gray-500 hover:underline cursor-pointer">
+    {{ likesCountResource.value() }}</a>
+</div>

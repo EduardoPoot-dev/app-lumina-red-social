@@ -1,0 +1,29 @@
+<h1 class="text-2xl font-bold font-inter text-center">Bienvenido de nuevo</h1>
+<p class="text-center mt-2">Ingresa tus credenciales para acceder a tu feed y comunidad en Lumina</p>
+
+<form class="mt-5 space-y-4" (submit)="onSubmit($event)" novalidate>
+  <div>
+    <label for="email" class="block text-sm font-semibold font-inter">Correo electrónico</label>
+    <input id="email" [formField]="loginForm.email"  type="email" class="w-full bg-indigo-50 p-3 text-sm rounded-lg mt-1" placeholder="nombre@correo.com">
+
+    @if (loginForm.email().invalid() && loginForm.email().touched()) {
+      <shared-error-messages [errors]="loginForm.email().errors()"></shared-error-messages>
+    }
+
+  </div>
+
+  <div>
+    <label for="password" class="block text-sm font-semibold font-inter">Contraseña</label>
+    <input id="password" [formField]="loginForm.password" type="password" class="w-full bg-indigo-50 p-3 text-sm rounded-lg mt-1" placeholder="mínimo 8 caracteres">
+    @if (loginForm.password().invalid() && loginForm.password().touched()) {
+      <shared-error-messages [errors]="loginForm.password().errors()"></shared-error-messages>
+    }
+  </div>
+
+  <input type="submit" value="Crear cuenta" class="w-full bg-indigo-800 text-white font-inter font-semibold rounded-4xl p-3">
+</form>
+
+<div class="mt-5 border-t border-gray-300 pt-5">
+  <p class="text-center text-sm">¿No tienes una cuenta?
+    <a routerLink="/auth/register" class="font-semibold text-indigo-800">Registrate</a></p>
+</div>

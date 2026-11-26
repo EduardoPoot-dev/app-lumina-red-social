@@ -1,0 +1,22 @@
+<user-list-heading
+  [returnPath]="returnPath()"
+  [followCount]="count()"
+  [title]="title()"></user-list-heading>
+
+<div class="h-[70vh] grid grid-rows-[1fr_auto] items-start">
+  @if(users().items.length) {
+    <ul class="bg-white rounded-2xl p-4 mt-5 shadow-xs ">
+      @for (userId of users().items; track userId) {
+        <li class="p-2  border-b border-b-gray-200 last:border-b-0 ">
+          <user-list-item [userId]="userId"></user-list-item>
+        </li>
+      }
+    </ul>
+  } @else {
+    <p class="text-lg mt-5 ml-7">Sin usuarios</p>
+  }
+
+  @if(users().items.length) {
+    <shared-paginatios-buttons [totalPages]="users().totalPages"></shared-paginatios-buttons>
+}
+</div>

@@ -1,0 +1,13 @@
+<div class="bg-white p-5 shadow sticky top-0 z-10 flex items-center justify-between">
+  <!-- <div class="relative">
+    <svg lucideSearch [size]="18" class="absolute top-3 left-4 text-gray-700"></svg>
+    <input type="text" class="w-100 p-2 pl-12 bg-indigo-50 rounded-4xl" placeholder="Buscar usuarios en lumina...">
+  </div> -->
+  <user-search ></user-search>
+
+  @if(authenticated()) {
+    <user-menu-options></user-menu-options>
+  } @else {
+   <a routerLink="/auth/login" class="px-4 py-2 font-semibold cursor-pointer bg-indigo-600 text-white rounded-lg">Iniciar sesión</a>
+  }
+</div>

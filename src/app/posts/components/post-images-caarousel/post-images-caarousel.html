@@ -1,0 +1,16 @@
+<div  class="w-full max-w-100 min-w-0 mx-auto mt-6">
+  <carousel  [maxWidthCarousel]="400" [slideToScroll]="1" [arrows]="false">
+    <ng-template #carouselViewContainer #carouselTemplateRef>
+      @for (item of imagePost(); track item) {
+      <figure class="carousel-slide">
+        <img
+            [src]="item"
+            alt="Post image"
+          />
+      </figure>
+      }
+
+    </ng-template>
+  </carousel>
+
+</div>

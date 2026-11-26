@@ -1,0 +1,15 @@
+@if (userResource.hasValue() ) {
+  <user-header [user]="userResource.value()"></user-header>
+}
+<user-nav [userId]="userId()!" [postPath]="myPostPath()" [photosPath]="myPhotosPath()"></user-nav>
+
+<div class="w-200 mx-auto mt-10">
+  @if (postResource.hasValue()) {
+  <posts-grid
+    [totalPages]="0"
+    [posts]="postResource.value()"
+  ></posts-grid>
+}
+</div>
+
+

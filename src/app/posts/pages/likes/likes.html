@@ -1,0 +1,8 @@
+  @if(likesResource.hasValue()) {
+    <user-list-grid
+      returnPath="/dashboard"
+      [count]="countLikesResource.value()!"
+      title="Likes"
+      [users]="likesResource.value()"
+    ></user-list-grid>
+  }

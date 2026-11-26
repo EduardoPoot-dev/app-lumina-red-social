@@ -1,0 +1,12 @@
+<div class="bg-white  mt-5">
+  <div class="w-200 mx-auto flex gap-15">
+    <a routerLinkActive="border-b-4 text-indigo-700" [routerLinkActiveOptions]="{exact: true}" [routerLink]="[postPath()]" class="flex gap-0.5 text-gray-600 py-3 cursor-pointer ">
+      <span class="font-bold text-sm">Posts</span>
+      <span routerLinkActive="bg-indigo-100" [routerLinkActiveOptions]="{exact: true}" class="text-xs px-2 py-0.5 rounded-xl">{{postCountResource.value()}}</span>
+    </a>
+    <!-- <a routerLinkActive="border-b-4 text-indigo-700" [routerLinkActiveOptions]="{exact: true}" [routerLink]="[photosPath()]" class="flex gap-0.5 text-gray-600 py-3 cursor-pointer">
+      <span class="font-bold text-sm">Fotos</span>
+      <span routerLinkActive="bg-indigo-100" [routerLinkActiveOptions]="{exact: true}" class="text-xs px-2 py-0.5 rounded-xl">43</span>
+    </a> -->
+  </div>
+</div>

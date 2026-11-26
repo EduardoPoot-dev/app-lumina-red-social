@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
+  <defs>
+    <!-- Gradiente oficial Lumina Índigo / Azul Violeta -->
+    <linearGradient id="luminaIsotypeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="50%" stop-color="#4338ca" />
+      <stop offset="100%" stop-color="#3730a3" />
+    </linearGradient>
+
+    <!-- Sombra suave para elevación de marca -->
+    <filter id="glowIcon" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#4f46e5" flood-opacity="0.32"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#glowIcon)">
+    <!-- Contenedor squircle / redondeado -->
+    <rect x="76" y="76" width="360" height="360" rx="90" fill="url(#luminaIsotypeGrad)"/>
+
+    <!-- Red modular de nodos (3x3) de Lumina -->
+    <!-- Fila superior -->
+    <circle cx="184" cy="184" r="26" fill="#ffffff" />
+    <circle cx="256" cy="184" r="26" fill="#ffffff" opacity="0.9" />
+    <circle cx="328" cy="184" r="26" fill="#ffffff" opacity="0.8" />
+
+    <!-- Fila central -->
+    <circle cx="184" cy="256" r="26" fill="#ffffff" opacity="0.9" />
+    <circle cx="256" cy="256" r="26" fill="#ffffff" />
+    <circle cx="328" cy="256" r="26" fill="#ffffff" opacity="0.9" />
+
+    <!-- Fila inferior -->
+    <circle cx="184" cy="328" r="26" fill="#ffffff" opacity="0.8" />
+    <circle cx="256" cy="328" r="26" fill="#ffffff" opacity="0.9" />
+    <circle cx="328" cy="328" r="26" fill="#ffffff" />
+  </g>
+</svg>

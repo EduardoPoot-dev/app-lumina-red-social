@@ -1,0 +1,16 @@
+<div class="text-indigo-800">
+  <svg lucideSquareBookmark class="inline"></svg>
+  <span class="uppercase text-xs font-bold ml-1">Biblioteca personal</span>
+</div>
+
+<shared-page-heading
+  title="Elementos guardados"
+  description="Todos tus posts, hilos e imágenes marcadas para ver después"
+></shared-page-heading>
+
+<div class="mt-6">
+  @if(savedPostsResource.hasValue()) {
+    <posts-grid [posts]="savedPostsResource.value()"></posts-grid>
+  }
+
+</div>

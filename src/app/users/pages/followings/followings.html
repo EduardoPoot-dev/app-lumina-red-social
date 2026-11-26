@@ -1,0 +1,10 @@
+<div class="w-200 mx-auto">
+  @if(followingsResource.hasValue()) {
+    <user-list-grid
+      [returnPath]="returnPath()"
+      [count]="followingCountResource.value()!"
+      title="Siguiendo"
+      [users]="followingsResource.value()"
+    ></user-list-grid>
+  }
+</div>

@@ -1,0 +1,44 @@
+<aside class="h-screen bg-white shadow p-5">
+  <div>
+    <a routerLink="/dashboard" class="flex w-fit items-center">
+      <img src="./logo.svg" class="w-12" alt="logo">
+      <span class="text-xl font-bold text-indigo-800">Lumina</span>
+    </a>
+  </div>
+
+  <ul class="mt-10" >
+    <li>
+      <a routerLink="/dashboard" class="flex p-3 gap-6 items-center rounded-lg" routerLinkActive="bg-indigo-100" [routerLinkActiveOptions]="{exact: true}">
+        <svg lucideHouse [size]="22" class="text-gray-500"></svg>
+        <span class="font-semibold font-inter text-gray-600">Inicio</span>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/dashboard/saved-posts" class="flex p-3 gap-6 items-center rounded-lg" routerLinkActive="bg-indigo-100" [routerLinkActiveOptions]="{exact: true}">
+        <svg lucideBookmark [size]="22" class="text-gray-500"></svg>
+        <span class="font-semibold font-inter text-gray-600">Guardados</span>
+      </a>
+    </li>
+
+    <li >
+      <a [routerLink]="['/users', userId()]" class="flex p-3 gap-6 items-center rounded-lg " routerLinkActive="bg-indigo-100" >
+        <svg lucideUser [size]="22" class="text-gray-500"></svg>
+        <span class="font-semibold font-inter text-gray-600">Perfil</span>
+      </a>
+    </li>
+
+    <!--<li >
+      <a routerLink="/dashboard/settings" class="flex p-3 gap-6 items-center rounded-lg" routerLinkActive="bg-indigo-100" [routerLinkActiveOptions]="{exact: true}">
+        <svg lucideSettings [size]="22" class="text-gray-500"></svg>
+        <span class="font-semibold font-inter text-gray-600">Configuración</span>
+      </a>
+    </li>-->
+  </ul>
+
+  <a routerLink="/posts/new" class="flex w-full mt-6 text-center justify-center gap-2 bg-indigo-700 text-white font-inter font-semibold rounded-4xl p-2.5">
+    <svg lucidePlus ></svg>
+    Crear post
+  </a>
+
+</aside>
