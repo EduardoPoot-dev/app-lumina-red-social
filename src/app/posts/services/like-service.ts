@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Service } from '@angular/core';
 import { Like, Likes, UserHasLikedResponse } from '@posts/interfaces';
 import { catchError, map, of } from 'rxjs';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 const urlBase = environment.apiUrl
 @Service()
